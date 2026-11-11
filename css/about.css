@@ -1,0 +1,590 @@
+/* =========================================================
+   THORNFIELD LIBRARY — ABOUT PAGE
+   Palette:
+   Cocoa Wood  #411E03
+   Dusty Mocha #846851
+   Sand Beige  #D6B38D
+   Olive Mist  #8A895F
+   Linen Fog   #D7CDC1
+========================================================= */
+
+.about-page {
+    background: #D7CDC1;
+    color: #411E03;
+    overflow: hidden;
+}
+
+.about-page * {
+    box-sizing: border-box;
+}
+
+.about-section {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 110px 0;
+}
+
+.about-eyebrow {
+    display: inline-block;
+    color: #846851;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.about-section-heading {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+.about-section-heading h2,
+.about-purpose h2 {
+    margin: 17px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.about-section-heading h2 em,
+.about-purpose h2 em {
+    color: #846851;
+    font-weight: 400;
+}
+
+.about-section-heading > p {
+    max-width: 550px;
+    color: #846851;
+    line-height: 1.9;
+}
+
+/* HERO */
+
+.about-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 570px;
+    padding: 90px max(7%, calc((100% - 1180px) / 2));
+    background: #411E03;
+    color: #D7CDC1;
+    overflow: hidden;
+}
+
+.about-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.about-hero .about-eyebrow {
+    color: #D6B38D;
+}
+
+.about-hero h1 {
+    margin: 25px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(43px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.08;
+}
+
+.about-hero h1 em {
+    color: #D6B38D;
+    font-weight: 400;
+}
+
+.about-hero__content > p {
+    max-width: 510px;
+    color: #D7CDC1;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.about-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 25px;
+    padding: 15px 23px;
+    background: #D6B38D;
+    color: #411E03;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .3s ease;
+}
+
+.about-button:hover {
+    background: #D7CDC1;
+    transform: translateY(-4px);
+}
+
+.about-button span {
+    font-size: 19px;
+}
+
+.about-hero__decoration {
+    position: absolute;
+    top: 50%;
+    right: 9%;
+    width: 350px;
+    height: 390px;
+    transform: translateY(-50%);
+    opacity: .9;
+}
+
+.about-book {
+    position: absolute;
+    bottom: 35px;
+    width: 105px;
+    height: 250px;
+    border: 2px solid #D6B38D;
+    background: #846851;
+    box-shadow: 9px 10px 20px rgba(0, 0, 0, .2);
+}
+
+.about-book::before {
+    content: "";
+    position: absolute;
+    inset: 12px 9px;
+    border: 1px solid #D6B38D;
+}
+
+.about-book--one {
+    left: 20px;
+    height: 220px;
+    transform: rotate(-12deg);
+    background: #846851;
+}
+
+.about-book--two {
+    left: 115px;
+    height: 280px;
+    transform: rotate(2deg);
+    background: #8A895F;
+}
+
+.about-book--three {
+    left: 210px;
+    height: 235px;
+    transform: rotate(13deg);
+    background: #D6B38D;
+}
+
+.about-ornament {
+    position: absolute;
+    top: 0;
+    left: 130px;
+    color: #D6B38D;
+    font-family: Georgia, serif;
+    font-size: 65px;
+    font-style: italic;
+    opacity: .8;
+}
+
+/* INTRODUCTION */
+
+.about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.about-intro__body {
+    padding-top: 30px;
+}
+
+.about-intro__body p,
+.about-purpose__content p {
+    color: #846851;
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+/* PURPOSE */
+
+.about-purpose {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+    padding-top: 30px;
+}
+
+.about-purpose__image {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    background: #846851;
+}
+
+.about-purpose__frame {
+    width: 100%;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D6B38D;
+    color: #D7CDC1;
+    text-align: center;
+}
+
+.about-purpose__quote-mark {
+    color: #D6B38D;
+    font-family: Georgia, serif;
+    font-size: 75px;
+    line-height: .8;
+}
+
+.about-purpose__frame p {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.about-purpose__line {
+    width: 55px;
+    height: 1px;
+    margin: 15px 0;
+    background: #D6B38D;
+}
+
+.about-purpose__frame small {
+    color: #D6B38D;
+    letter-spacing: 3px;
+    font-size: 9px;
+}
+
+.about-purpose__content h2 {
+    margin-bottom: 25px;
+}
+
+/* FEATURES */
+
+.about-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.about-feature-card {
+    position: relative;
+    min-height: 245px;
+    padding: 30px;
+    border: 1px solid rgba(65, 30, 3, .2);
+    background: rgba(215, 205, 193, .45);
+    transition: .3s ease;
+}
+
+.about-feature-card:hover {
+    transform: translateY(-7px);
+    background: #D6B38D;
+}
+
+.about-feature-number {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: #846851;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.about-feature-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 24px;
+    border: 1px solid #846851;
+    color: #411E03;
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.about-feature-card h3 {
+    margin-bottom: 12px;
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.about-feature-card p {
+    color: #846851;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* TEAM */
+
+.about-team {
+    padding-top: 45px;
+}
+
+.about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.about-team-card {
+    position: relative;
+    min-height: 255px;
+    padding: 25px 19px;
+    border-top: 2px solid #846851;
+    background: rgba(214, 179, 141, .28);
+}
+
+.about-team-card__number {
+    color: #846851;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.about-team-card__symbol {
+    margin: 22px 0;
+    color: #846851;
+    font-family: Georgia, serif;
+    font-size: 38px;
+}
+
+.about-team-card h3 {
+    margin-bottom: 12px;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.about-team-card p {
+    color: #846851;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* FACTS */
+
+.about-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 65px 7%;
+    background: #411E03;
+    color: #D7CDC1;
+    text-align: center;
+}
+
+.about-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-right: 1px solid rgba(214, 179, 141, .35);
+}
+
+.about-fact:last-child {
+    border-right: none;
+}
+
+.about-fact strong {
+    color: #D6B38D;
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.about-fact span {
+    color: #D7CDC1;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* FAQ */
+
+.about-faq {
+    max-width: 900px;
+}
+
+.about-faq-list {
+    border-top: 1px solid rgba(65, 30, 3, .25);
+}
+
+.about-faq-item {
+    border-bottom: 1px solid rgba(65, 30, 3, .25);
+}
+
+.about-faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 23px 5px;
+    border: none;
+    background: transparent;
+    color: #411E03;
+    text-align: left;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.about-faq-question span {
+    color: #846851;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    transition: transform .3s ease;
+}
+
+.about-faq-item.is-open .about-faq-question span {
+    transform: rotate(45deg);
+}
+
+.about-faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .3s ease;
+}
+
+.about-faq-answer p {
+    overflow: hidden;
+    margin: 0;
+    color: #846851;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.about-faq-item.is-open .about-faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.about-faq-item.is-open .about-faq-answer p {
+    padding: 0 35px 22px 5px;
+}
+
+/* ENDING */
+
+.about-ending {
+    padding: 100px 20px;
+    background: #846851;
+    color: #D7CDC1;
+    text-align: center;
+}
+
+.about-ending .about-eyebrow {
+    color: #D6B38D;
+}
+
+.about-ending h2 {
+    margin: 25px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.about-ending h2 em {
+    color: #D6B38D;
+    font-weight: 400;
+}
+
+.about-button--light {
+    background: #D7CDC1;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .about-hero__decoration {
+        right: -80px;
+        opacity: .35;
+    }
+
+    .about-team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-purpose {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    .about-section {
+        padding: 75px 0;
+    }
+
+    .about-hero {
+        min-height: 520px;
+        padding: 75px 7%;
+    }
+
+    .about-hero__decoration {
+        right: -140px;
+        opacity: .2;
+    }
+
+    .about-hero h1 {
+        font-size: 46px;
+    }
+
+    .about-intro,
+    .about-purpose {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .about-intro__body {
+        padding-top: 0;
+    }
+
+    .about-purpose__image {
+        min-height: 350px;
+    }
+
+    .about-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-facts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 10px;
+    }
+
+    .about-fact:nth-child(2) {
+        border-right: none;
+    }
+
+    .about-fact strong {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 420px) {
+    .about-team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-team-card {
+        min-height: auto;
+    }
+
+    .about-faq-question {
+        font-size: 16px;
+    }
+}
