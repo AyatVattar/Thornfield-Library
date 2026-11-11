@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" role="img">
+  <defs>
+    
+  <filter id="wg" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.16" numOctaves="4" seed="5" stitchTiles="stitch" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.353 0 0 0 0 0.173 0 0 0 0 0.031 0 0 0 0.55 0"/>
+  </filter>
+    
+  <filter id="wg2" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02 0.4" numOctaves="3" seed="19" stitchTiles="stitch" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.110 0 0 0 0 0.051 0 0 0 0 0.004 0 0 0 0.5 0"/>
+  </filter>
+    <linearGradient id="wb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2A1302"/><stop offset=".5" stop-color="#1C0D01"/><stop offset="1" stop-color="#2A1302"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="420" fill="url(#wb)"/>
+  <rect width="420" height="420" filter="url(#wg)" opacity="0.5"/>
+  <rect width="420" height="420" filter="url(#wg2)" opacity="0.35"/>
+</svg>
