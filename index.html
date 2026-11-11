@@ -1,13 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thornfield Library</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thornfield Library — A Free Digital Reading Room</title>
+  <meta name="description" content="A free digital library of fifteen enduring books across five genres. Read public-domain texts online, keep a personal shelf in your browser. No prices, no accounts, nothing to borrow.">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body data-root="./">
+  <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Shared header is injected here by app.js (one copy for the whole site). -->
+  <div id="site-header"></div>
 
-    
+  <main id="main">
+    <noscript>
+      <div class="wrap section">
+        <div class="notice notice--warn">
+          <p><strong>JavaScript is switched off.</strong> Thornfield Library renders its shelves with vanilla JavaScript. Please enable it to browse the collection, or ask your teacher for the printed book list.</p>
+        </div>
+      </div>
+    </noscript>
+
+    <!-- ============================================================ HERO -->
+    <section class="home-hero" aria-labelledby="hero-title">
+      <img class="home-hero__bg" src="assets/images/backgrounds/hero-library.svg" alt="" aria-hidden="true">
+      <div class="home-hero__overlay" aria-hidden="true"></div>
+
+      <div class="wrap home-hero__inner">
+        <div class="home-hero__content">
+          <span class="eyebrow eyebrow--on-dark">A free reading room · Est. MMXXVI</span>
+          <h1 id="hero-title">Step inside.<br><em>The lamp is already lit.</em></h1>
+          <p class="lead">Thornfield is a small, quiet library: fifteen enduring books across five genres, seven of them readable online, and a personal shelf that lives only in your browser. No prices. No accounts. Nothing to borrow.</p>
+
+          <!-- Prominent working search: live suggestions below, Enter opens
+               the full shared search dialog. -->
+          <form class="home-hero__search" id="home-search-form" role="search" aria-label="Search the collection">
+            <div class="search-field home-hero__search-field">
+              <span data-icon="search"></span>
+              <label class="sr-only" for="home-search-input">Search by title, author or genre</label>
+              <input class="input" id="home-search-input" type="search" maxlength="120" autocomplete="off"
+                     placeholder="Title, author or genre — try “Austen” or “gothic”"
+                     aria-describedby="home-search-hint">
+            </div>
+            <button class="btn btn--on-dark" type="submit">Search</button>
+            <p class="home-hero__search-hint" id="home-search-hint">Press <kbd>/</kbd> anywhere to search. Enter opens the full results.</p>
+
+            <div class="home-search-panel" id="home-search-panel" hidden>
+              <p class="home-search-panel__status" id="home-search-status" role="status" aria-live="polite"></p>
+              <div class="home-search-panel__list" id="home-search-list"></div>
+            </div>
+          </form>
+
+          <div class="btn-row home-hero__actions">
+            <a class="btn btn--on-dark" href="pages/genres.html">Browse the genres <span data-icon="arrowRight"></span></a>
+            <a class="btn btn--outline-dark" href="pages/my-library.html">My library</a>
+          </div>
+        </div>
+
+        <!-- A single volume on the reading desk, rendered by home.js. -->
+        <aside class="home-hero__panel" aria-label="Tonight on the reading desk">
+          <span class="eyebrow">Tonight on the reading desk</span>
+          <div id="hero-spotlight"></div>
+          <p class="home-hero__panel-note">Seven of the fifteen volumes can be opened and read right here. The rest are catalogued for reference until a legal text is available.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =========================================================== INTRO -->
+    <section class="section" aria-labelledby="intro-title">
+      <div class="wrap home-intro">
+        <div class="home-intro__text">
+          <span class="eyebrow">What this library is</span>
+          <h2 id="intro-title">A reading room, not a shop</h2>
+          <p>Thornfield began as a student project with one stubborn rule: a library should ask nothing of its readers. There is no checkout, no subscription and no borrowing queue. You walk in, you choose a shelf, and you read what the law allows us to offer.</p>
+          <p>The collection is deliberately small — fifteen books, chosen to stand for five very different literary worlds. Seven are public domain in the editions we carry and can be read online; eight are still under copyright and are listed with accurate notes rather than pirated text. Your favourites, reading statuses and bookmarks are kept in this browser alone.</p>
+        </div>
+        <aside class="home-index-card" aria-label="The collection at a glance">
+          <span class="home-index-card__stamp" aria-hidden="true">Free</span>
+          <span class="eyebrow">Catalogue card</span>
+          <dl class="home-index-card__list" id="home-index-list"><!-- rows injected by home.js --></dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ========================================================== GENRES -->
+    <section class="section section--tight" aria-labelledby="home-genres-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <span class="eyebrow">Choose a door</span>
+            <h2 id="home-genres-title">Five genres, five atmospheres</h2>
+            <p>Each room keeps its own light, its own weather, its own three books.</p>
+          </div>
+          <a class="section-head__link" href="pages/genres.html">Genre directory</a>
+        </div>
+        <div class="genre-strip" id="home-genre-strip"><!-- tiles injected by home.js --></div>
+      </div>
+    </section>
+
+    <!-- ======================================================== FEATURED -->
+    <section class="section" aria-labelledby="featured-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <span class="eyebrow">Curated, not counted</span>
+            <h2 id="featured-title">Featured on the desk</h2>
+            <p>One volume chosen from each genre to begin with.</p>
+          </div>
+          <a class="section-head__link" href="pages/genres.html">All genres</a>
+        </div>
+        <div id="home-featured"><!-- book grid injected by home.js --></div>
+      </div>
+    </section>
+
+    <!-- ================================================== RECENTLY ADDED -->
+    <section class="section section--surface" aria-labelledby="recent-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <span class="eyebrow">New accession numbers</span>
+            <h2 id="recent-title">Recently added</h2>
+            <p>The latest volumes to enter this collection.</p>
+          </div>
+        </div>
+        <div id="home-recent"><!-- book grid injected by home.js --></div>
+      </div>
+    </section>
+
+    <!-- ====================================================== RECOMMENDED -->
+    <section class="section section--dark home-recommended" aria-labelledby="recommended-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <span class="eyebrow eyebrow--on-dark">From the librarian’s desk</span>
+            <h2 id="recommended-title">Recommended next</h2>
+            <p>Not bestsellers — there are no sales here. Just books worth an evening.</p>
+          </div>
+          <a class="section-head__link" href="pages/genres.html">Browse all fifteen</a>
+        </div>
+        <div class="home-recommended__list" id="home-recommended"><!-- book rows injected by home.js --></div>
+      </div>
+    </section>
+
+    <!-- ========================================================= PURPOSE -->
+    <section class="section" aria-labelledby="purpose-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <span class="eyebrow">Our one stubborn rule</span>
+            <h2 id="purpose-title">Why this library exists</h2>
+          </div>
+        </div>
+        <div class="home-purpose">
+          <article class="home-purpose__item">
+            <span class="home-purpose__icon" data-icon="leaf" aria-hidden="true"></span>
+            <h3>Free, and staying that way</h3>
+            <p>No prices, no carts, no subscriptions, no lending. The library is an educational project, and reading in it will never cost anything.</p>
+          </article>
+          <article class="home-purpose__item">
+            <span class="home-purpose__icon" data-icon="lock" aria-hidden="true"></span>
+            <h3>Only legal texts</h3>
+            <p>We reproduce public-domain editions verbatim and nothing else. Where a book is still protected, we say so plainly instead of copying it.</p>
+          </article>
+          <article class="home-purpose__item">
+            <span class="home-purpose__icon" data-icon="shelves" aria-hidden="true"></span>
+            <h3>Your shelf stays with you</h3>
+            <p>Favourites, statuses and bookmarks live in your browser’s localStorage. No account, no cloud, no tracking — and no sync to other devices.</p>
+          </article>
+        </div>
+        <div class="ornament" aria-hidden="true"><span class="ornament__mark" data-icon="feather"></span></div>
+        <div class="btn-row home-purpose__cta">
+          <a class="btn btn--primary" href="pages/about.html">About the project <span data-icon="arrowRight"></span></a>
+          <a class="btn btn--ghost" href="pages/my-library.html">Open my library</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer is injected here by app.js. -->
+  <div id="site-footer"></div>
+
+  <!-- Load order matters: data → shared runtime → this page. All deferred. -->
+  <script src="js/books.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/home.js" defer></script>
 </body>
 </html>
