@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Reading Room — Thornfield Library</title>
+
+  <meta
+    name="description"
+    content="Read selected public-domain literary works in the Thornfield Library reading room."
+  >
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/read.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body data-root="../">
+
+  <a class="skip-link" href="#reader-main">Skip to reading content</a>
+
+  <div id="site-header"></div>
+
+
+  <main id="reader-main" class="reader-page">
+
+    <div class="wrap">
+
+      <!-- Breadcrumb -->
+
+      <nav class="reader-breadcrumb" aria-label="Breadcrumb">
+
+        <a href="../index.html">Home</a>
+
+        <span aria-hidden="true">/</span>
+
+        <a href="my-library.html">My Library</a>
+
+        <span aria-hidden="true">/</span>
+
+        <span aria-current="page">Reading Room</span>
+
+      </nav>
+
+
+      <!-- Reader root -->
+
+      <div id="reader-root">
+
+        <div class="reader-loading" role="status">
+          Preparing your reading room...
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <div id="site-footer"></div>
+
+
+  <!-- Important: reader-texts.js must load before app.js -->
+
+  <script src="../js/books.js" defer></script>
+  <script src="../js/reader-texts.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/reader.js" defer></script>
+
+</body>
+</html>
