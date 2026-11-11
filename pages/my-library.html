@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>My Library — Thornfield Library</title>
+  <meta name="description" content="Your personal reading shelf: favourites, reading status and saved books.">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/my-library.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body data-root="../">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div id="site-header"></div>
+
+  <main id="main" class="my-library">
+
+    <section class="library-intro">
+      <div class="wrap">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">My Library</span>
+        </nav>
+
+        <span class="eyebrow">Your personal collection</span>
+
+        <h1>My Library</h1>
+
+        <p class="lead">
+          A quiet corner for the books you have saved,
+          the stories you are reading and the ones you have finished.
+        </p>
+
+        <div class="library-stats" aria-label="Library statistics">
+
+          <article class="library-stat">
+            <span class="library-stat__number" id="stat-total">0</span>
+            <span class="library-stat__label">Saved books</span>
+          </article>
+
+          <article class="library-stat">
+            <span class="library-stat__number" id="stat-reading">0</span>
+            <span class="library-stat__label">Currently reading</span>
+          </article>
+
+          <article class="library-stat">
+            <span class="library-stat__number" id="stat-completed">0</span>
+            <span class="library-stat__label">Completed</span>
+          </article>
+
+          <article class="library-stat">
+            <span class="library-stat__number" id="stat-favorites">0</span>
+            <span class="library-stat__label">Favourites</span>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="library-content section">
+
+      <div class="wrap">
+
+        <div class="library-toolbar">
+
+          <div class="library-toolbar__heading">
+            <span class="eyebrow">The shelves</span>
+            <h2>Your reading shelf</h2>
+          </div>
+
+          <label class="library-search">
+            <span class="sr-only">Search your library</span>
+            <span data-icon="search"></span>
+            <input
+              type="search"
+              id="library-search"
+              placeholder="Search your shelf..."
+              autocomplete="off"
+            >
+          </label>
+
+        </div>
+
+
+        <div class="library-filters" role="group" aria-label="Filter your library">
+
+          <button
+            class="library-filter is-active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true">
+            All books
+          </button>
+
+          <button
+            class="library-filter"
+            type="button"
+            data-filter="favorites"
+            aria-pressed="false">
+            <span data-icon="heart"></span>
+            Favourites
+          </button>
+
+          <button
+            class="library-filter"
+            type="button"
+            data-filter="reading"
+            aria-pressed="false">
+            Currently reading
+          </button>
+
+          <button
+            class="library-filter"
+            type="button"
+            data-filter="completed"
+            aria-pressed="false">
+            Completed
+          </button>
+
+          <button
+            class="library-filter"
+            type="button"
+            data-filter="not-started"
+            aria-pressed="false">
+            Not started
+          </button>
+
+        </div>
+
+
+        <div class="library-results-head">
+
+          <p id="library-result-count" aria-live="polite">
+            0 books on your shelf
+          </p>
+
+          <label class="library-sort">
+            <span>Sort by</span>
+
+            <select id="library-sort">
+              <option value="recent">Recently saved</option>
+              <option value="title">Title A–Z</option>
+              <option value="author">Author A–Z</option>
+              <option value="progress">Reading progress</option>
+            </select>
+          </label>
+
+        </div>
+
+
+        <div id="library-grid" class="library-grid">
+
+          <!-- Books are rendered by library.js -->
+
+        </div>
+
+
+        <div id="library-empty" class="library-empty" hidden>
+
+          <div class="library-empty__icon">
+            <span data-icon="book"></span>
+          </div>
+
+          <span class="eyebrow">An empty shelf</span>
+
+          <h2 id="library-empty-title">Your library is waiting</h2>
+
+          <p id="library-empty-text">
+            You haven't saved any books yet.
+            Explore the collection and add something to your shelf.
+          </p>
+
+          <a href="genres.html" class="btn btn--primary">
+            Explore the collection
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <div id="site-footer"></div>
+
+
+  <script src="../js/books.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/library.js" defer></script>
+
+</body>
+</html>
