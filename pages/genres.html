@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Genres — Thornfield Library</title>
+  <meta name="description" content="Five genre portals — Dark Fiction, Romance, Fantasy, Mystery & Crime, Adventure & Historical. Each room keeps its own atmosphere and its own three books.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/genres.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div id="site-header"></div>
+
+  <main id="main">
+    <noscript>
+      <div class="wrap section">
+        <div class="notice notice--warn">
+          <p><strong>JavaScript is switched off.</strong> The genre portals are rendered with vanilla JavaScript. Please enable it to explore the five rooms.</p>
+        </div>
+      </div>
+    </noscript>
+
+    <div class="wrap page-head">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li aria-current="page">Genres</li>
+        </ol>
+      </nav>
+      <span class="eyebrow">The directory</span>
+      <h1>Five doors, five worlds</h1>
+      <p class="lead">Every genre keeps its own weather. Choose a door below to enter a room with its own light, its own ornaments and its own three books — the same library, five different atmospheres.</p>
+    </div>
+
+    <!-- Portals are rendered here by genres.js from the GENRES array. -->
+    <section class="section section--tight" aria-label="Genre portals">
+      <div class="wrap">
+        <div class="genre-directory" id="genre-directory"></div>
+
+        <div class="ornament" aria-hidden="true"><span class="ornament__mark" data-icon="leaf"></span></div>
+
+        <div class="notice genre-directory__note">
+          <span data-icon="info" aria-hidden="true"></span>
+          <p><strong>Fifteen books in total, three per room.</strong> Seven volumes can be read online in public-domain editions; the remaining eight are catalogued with honest availability notes. Subgenre chips on each portal jump straight to a filtered shelf.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/books.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/genres.js" defer></script>
+</body>
+</html>

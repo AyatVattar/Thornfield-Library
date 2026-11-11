@@ -1,0 +1,342 @@
+/* ==========================================================================
+   genres.css — MEMBER 2 (pages/genres.html + pages/genre-details.html)
+
+   Two views share this file:
+     · the genre directory  (.genre-directory, .genre-portal…)
+     · one genre room       (.genre-hero, .genre-subnav, .genre-spotlight…)
+
+   The five rooms keep the exact same five-colour palette but differ in
+   composition: artwork position, overlay direction, emblem shape and frame
+   style are varied per genre with [data-genre='…'] selectors below.
+   ========================================================================== */
+
+/* ------------------------------------------------------------- directory */
+.genre-directory { display: grid; gap: var(--space-6); }
+.genre-directory__note { margin-top: var(--space-5); }
+
+.genre-portal {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+/* Alternate rooms flip the artwork to the right — a corridor, not a grid. */
+.genre-portal--flip .genre-portal__art { order: 2; }
+
+.genre-portal__art {
+  position: relative;
+  display: block;
+  min-height: 340px;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--mocha-dark), var(--cocoa-deep));
+}
+.genre-portal__art img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.genre-portal:hover .genre-portal__art img { transform: scale(1.04); }
+.genre-portal__art::after {
+  content: '';
+  position: absolute; inset: 12px;
+  border: 1px solid rgba(214, 179, 141, 0.4);
+  pointer-events: none;
+}
+.genre-portal__num {
+  position: absolute; left: var(--space-4); bottom: var(--space-3);
+  z-index: 1;
+  font-family: var(--font-display); font-size: var(--step-3); line-height: 1;
+  color: var(--sand-light);
+  text-shadow: 0 2px 14px rgba(28, 13, 1, 0.9);
+}
+
+.genre-portal__body {
+  display: flex; flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+}
+.genre-portal__title { margin: 0; font-size: var(--step-2); }
+.genre-portal__title a { color: var(--ink); text-decoration: none; }
+.genre-portal__title a:hover { color: var(--cocoa-lift); text-decoration: underline; text-decoration-color: var(--sand-dark); }
+.genre-portal__tagline {
+  margin: calc(-1 * var(--space-2)) 0 0;
+  font-family: var(--font-display); font-style: italic;
+  font-size: var(--step-1); color: var(--mocha-dark);
+}
+.genre-portal__desc { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
+
+.genre-portal__subs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.genre-portal__subs-label {
+  font-family: var(--font-ui); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--olive-dark);
+  margin-right: var(--space-1);
+}
+
+.genre-portal__shelf {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--rule-strong);
+}
+.genre-portal__shelf-label {
+  font-family: var(--font-ui); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
+}
+.genre-portal__minis { display: flex; gap: var(--space-2); }
+.genre-portal__mini {
+  display: block; width: 40px; aspect-ratio: 2 / 3;
+  border-radius: 2px; overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease);
+}
+.genre-portal__mini:hover { transform: translateY(-3px); }
+.genre-portal__mini-img { display: block; width: 100%; height: 100%; }
+
+.genre-portal__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-3); flex-wrap: wrap;
+  margin-top: auto; padding-top: var(--space-4);
+}
+.genre-portal__count {
+  font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--olive-dark);
+}
+
+/* ------------------------------------------------------------ genre hero */
+.genre-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--cocoa-night);
+  color: var(--on-dark);
+  border-bottom: 3px double rgba(214, 179, 141, 0.35);
+}
+.genre-hero__art {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.34;
+}
+.genre-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(28, 13, 1, 0.92) 0%, rgba(28, 13, 1, 0.72) 55%, rgba(42, 19, 2, 0.5) 100%);
+  box-shadow: inset 0 0 160px rgba(28, 13, 1, 0.8);
+}
+.genre-hero__inner {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-6);
+  align-items: center;
+  padding-block: var(--space-7);
+}
+.genre-hero h1 { font-size: var(--step-4); color: var(--sand-light); margin-bottom: var(--space-2); }
+.genre-hero__tagline {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display); font-style: italic;
+  font-size: var(--step-1); color: var(--linen);
+}
+.genre-hero__desc { max-width: 62ch; margin: 0; color: var(--linen-dark); font-size: var(--step-0); line-height: 1.7; }
+.genre-hero__stats {
+  display: flex; flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-4);
+  font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mocha-light);
+}
+.genre-hero__stats strong { color: var(--sand-light); font-size: 0.92rem; margin-right: 0.4em; }
+
+.genre-hero .breadcrumb a { color: var(--linen-dark); }
+.genre-hero .breadcrumb a:hover { color: var(--sand-light); }
+.genre-hero .breadcrumb li[aria-current] { color: var(--sand-light); }
+.genre-hero .breadcrumb__sep { color: var(--mocha-light); }
+
+/* Engraved emblem — its shape changes from room to room. */
+.genre-hero__emblem {
+  position: relative;
+  width: 132px; height: 132px; flex: none;
+  display: grid; place-items: center;
+  border: 1px solid rgba(214, 179, 141, 0.5);
+  border-radius: 50%;
+  color: var(--sand);
+}
+.genre-hero__emblem::before {
+  content: '';
+  position: absolute; inset: 7px;
+  border: 1px dashed rgba(214, 179, 141, 0.32);
+  border-radius: inherit;
+}
+.genre-hero__emblem svg { width: 54px; height: 54px; }
+
+/* --- five atmospheres, one palette ------------------------------------- */
+/* Dark Fiction: heavy left vignette, art pushed right, double-ring emblem. */
+.genre-hero[data-genre='dark-fiction'] .genre-hero__art { object-position: 75% center; opacity: 0.3; }
+.genre-hero[data-genre='dark-fiction'] .genre-hero__emblem { border: 3px double rgba(214, 179, 141, 0.55); }
+
+/* Romance: lighter, top-lit wash; the emblem turns like a pressed flower. */
+.genre-hero[data-genre='romance'] .genre-hero__art { object-position: center; opacity: 0.5; }
+.genre-hero[data-genre='romance'] .genre-hero__overlay {
+  background: linear-gradient(180deg, rgba(28, 13, 1, 0.6) 0%, rgba(42, 19, 2, 0.88) 100%);
+}
+.genre-hero[data-genre='romance'] .genre-hero__emblem { border-radius: 0; transform: rotate(45deg); }
+.genre-hero[data-genre='romance'] .genre-hero__emblem::before { border-radius: 0; }
+.genre-hero[data-genre='romance'] .genre-hero__emblem svg { transform: rotate(-45deg); }
+
+/* Fantasy: emblem leads on the left, artwork glows from that side. */
+.genre-hero[data-genre='fantasy'] .genre-hero__inner { grid-template-columns: auto minmax(0, 1fr); }
+.genre-hero[data-genre='fantasy'] .genre-hero__emblem { order: -1; box-shadow: 0 0 0 7px rgba(214, 179, 141, 0.08); }
+.genre-hero[data-genre='fantasy'] .genre-hero__art { object-position: 20% center; opacity: 0.42; }
+.genre-hero[data-genre='fantasy'] .genre-hero__overlay {
+  background: linear-gradient(270deg, rgba(28, 13, 1, 0.9) 0%, rgba(28, 13, 1, 0.62) 60%, rgba(42, 19, 2, 0.46) 100%);
+}
+
+/* Mystery & Crime: a lamp-pool of visibility, square case-file emblem. */
+.genre-hero[data-genre='mystery-crime'] .genre-hero__art { object-position: 70% 30%; opacity: 0.32; }
+.genre-hero[data-genre='mystery-crime'] .genre-hero__overlay {
+  background: radial-gradient(circle at 72% 38%, rgba(42, 19, 2, 0.28) 0%, rgba(28, 13, 1, 0.93) 72%);
+}
+.genre-hero[data-genre='mystery-crime'] .genre-hero__emblem { border-radius: var(--radius); }
+.genre-hero[data-genre='mystery-crime'] .genre-hero__emblem::before { border-radius: calc(var(--radius) - 3px); }
+
+/* Adventure & Historical: chart light from below, taller breathing room. */
+.genre-hero[data-genre='adventure-historical'] .genre-hero__art { object-position: center 78%; opacity: 0.45; }
+.genre-hero[data-genre='adventure-historical'] .genre-hero__overlay {
+  background: linear-gradient(0deg, rgba(28, 13, 1, 0.94) 8%, rgba(28, 13, 1, 0.62) 55%, rgba(42, 19, 2, 0.55) 100%);
+}
+.genre-hero[data-genre='adventure-historical'] .genre-hero__inner { padding-top: var(--space-8); }
+
+/* -------------------------------------------------------------- subgenre nav */
+.genre-subnav {
+  position: sticky; top: var(--header-height); z-index: 40;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 3px 10px -7px rgba(42, 19, 2, 0.5);
+}
+.genre-subnav__inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--space-2) var(--space-3);
+  padding-block: var(--space-3);
+}
+.genre-subnav__label {
+  font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--olive-dark);
+  margin-right: var(--space-2);
+}
+
+/* ---------------------------------------------------------- featured three */
+.genre-featured {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+.genre-spotlight {
+  display: flex; flex-direction: column;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.genre-spotlight:hover { border-color: var(--sand-dark); box-shadow: var(--shadow); }
+.genre-spotlight__cover {
+  display: block;
+  width: min(100%, 190px);
+  aspect-ratio: 2 / 3;
+  margin: 0 auto var(--space-4);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.genre-spotlight__cover-img { display: block; width: 100%; height: 100%; }
+.genre-spotlight__body { display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
+.genre-spotlight__title { font-family: var(--font-display); font-size: var(--step-1); line-height: 1.22; margin: 0; }
+.genre-spotlight__title a { color: var(--ink); text-decoration: none; }
+.genre-spotlight__title a:hover { color: var(--cocoa-lift); text-decoration: underline; text-decoration-color: var(--sand-dark); }
+.genre-spotlight__author { margin: 0; font-size: 0.84rem; font-style: italic; color: var(--ink-soft); }
+.genre-spotlight__desc { margin: 0; font-size: 0.88rem; color: var(--ink-soft); }
+.genre-spotlight__actions {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--space-2);
+  margin-top: auto; padding-top: var(--space-3);
+}
+
+/* --------------------------------------------------------------- collection */
+.genre-collection__empty { margin-top: var(--space-4); }
+
+/* ------------------------------------------------------------ related rooms */
+.genre-related {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.genre-related__card {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none; color: var(--ink);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.genre-related__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--sand-dark);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+.genre-related__art {
+  position: relative;
+  min-height: 120px;
+  background: linear-gradient(160deg, var(--mocha-dark), var(--cocoa-deep));
+}
+.genre-related__art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.genre-related__body { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-4); }
+.genre-related__name {
+  display: flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-display); font-size: 1.15rem; margin: 0;
+}
+.genre-related__name svg { width: 16px; height: 16px; margin-left: auto; color: var(--cocoa-lift); }
+.genre-related__tagline { margin: 0; font-size: 0.8rem; font-style: italic; color: var(--ink-soft); }
+.genre-related__count {
+  font-family: var(--font-ui); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--olive-dark);
+}
+
+.genre-back { justify-content: center; margin-top: var(--space-5); }
+
+/* ------------------------------------------------- page-specific responsive */
+@media (max-width: 1024px) {
+  .genre-portal__body { padding: var(--space-5); }
+  .genre-featured { gap: var(--space-4); }
+  .genre-hero__emblem { width: 110px; height: 110px; }
+  .genre-hero__emblem svg { width: 46px; height: 46px; }
+}
+
+@media (max-width: 860px) {
+  .genre-portal { grid-template-columns: 1fr; }
+  .genre-portal__art { min-height: 240px; }
+  .genre-portal--flip .genre-portal__art { order: 0; }
+  .genre-hero__inner { grid-template-columns: 1fr; padding-block: var(--space-6); }
+  .genre-hero__emblem { display: none; }
+  .genre-hero[data-genre='fantasy'] .genre-hero__inner { grid-template-columns: 1fr; }
+  .genre-hero[data-genre='adventure-historical'] .genre-hero__inner { padding-top: var(--space-6); }
+  .genre-related { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .genre-featured { grid-template-columns: 1fr; }
+  .genre-spotlight__cover { width: min(100%, 160px); }
+  .genre-hero h1 { font-size: var(--step-3); }
+}
+
+@media (max-width: 560px) {
+  .genre-portal__body { padding: var(--space-4); }
+  .genre-portal__mini { width: 34px; }
+  .genre-subnav__label { width: 100%; margin-right: 0; }
+  .genre-related__card { grid-template-columns: 104px minmax(0, 1fr); }
+  .genre-hero__stats { gap: var(--space-2) var(--space-4); }
+}
