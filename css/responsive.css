@@ -1,0 +1,108 @@
+/* ==========================================================================
+   responsive.css — SHARED RESPONSIVE RULES (frozen shared file)
+
+   Page-specific breakpoints live in each page's own stylesheet. This file
+   only handles the shared shell: header, navigation, footer, grids, forms,
+   search dialog and the global type/spacing rhythm.
+
+   Breakpoints: 1024 (laptop/tablet), 860 (tablet → mobile nav), 560 (phone).
+   ========================================================================== */
+
+/* ------------------------------------------------------------- <= 1024px */
+@media (max-width: 1024px) {
+  :root { --space-7: 3.2rem; --space-8: 4.5rem; }
+
+  .site-footer__grid { grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+  .site-footer__about { grid-column: 1 / -1; }
+
+  .book-grid { grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: var(--space-4) var(--space-3); }
+  .book-grid--wide { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+  .site-nav__link { padding: var(--space-2) 0.6rem; font-size: 0.84rem; }
+  .brand__name { font-size: 1.18rem; }
+}
+
+/* -------------------------------------------------------------- <= 860px */
+@media (max-width: 860px) {
+  :root { --header-height: 64px; --space-6: 2.2rem; }
+
+  /* Navigation collapses into a drop-down panel under the header. */
+  .nav-toggle { display: inline-flex; }
+  .site-nav {
+    position: absolute; top: 100%; left: 0; right: 0; margin: 0;
+    display: none;
+    background: var(--cocoa-deep);
+    background-image: url('../assets/images/backgrounds/wood-grain.svg');
+    background-size: 420px 420px;
+    border-bottom: 1px solid var(--cocoa-night);
+    box-shadow: var(--shadow-lg);
+  }
+  .site-nav.is-open { display: block; }
+  .site-nav__list { flex-direction: column; align-items: stretch; gap: 0; padding: var(--space-2) clamp(1rem, 4vw, 2.5rem) var(--space-3); }
+  .site-nav__link { padding: 0.95rem 0.75rem; font-size: 1rem; border-bottom: 1px solid rgba(214, 179, 141, 0.12); border-radius: 0; }
+  .site-nav__list li:last-child .site-nav__link { border-bottom: 0; }
+  .site-nav__link[aria-current='page']::after { left: 0; right: auto; top: 20%; bottom: 20%; width: 3px; height: auto; }
+
+  .brand__sub { display: none; }
+  .brand__mark { width: 34px; height: 34px; }
+
+  .section-head { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+  .section-head__link { align-self: flex-start; }
+
+  .filter-bar { flex-direction: column; align-items: stretch; }
+  .filter-bar__group { width: 100%; }
+  .filter-bar .field { flex: 1; min-width: 0; }
+
+  .book-row { grid-template-columns: 62px 1fr; }
+  .book-row__actions { grid-column: 2; justify-content: flex-start; }
+
+  .search-dialog { width: min(96vw, 760px); }
+  .search-dialog__body { max-height: 52vh; }
+}
+
+/* -------------------------------------------------------------- <= 560px */
+@media (max-width: 560px) {
+  :root { --space-7: 2.6rem; --space-8: 3.4rem; --space-5: 1.5rem; }
+
+  .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-3); }
+  .book-grid--wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .book-card { padding: var(--space-2); }
+  .book-card__title { font-size: 1rem; }
+  .book-card__fav { top: var(--space-2); right: var(--space-2); }
+  .book-card__fav .fav-btn { padding: 0.4rem; }
+  .book-card__fav .fav-btn svg { width: 15px; height: 15px; }
+
+  .site-footer__grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  .site-footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+
+  .btn { padding: 0.7em 1.15em; font-size: 0.8rem; }
+  .btn-row { gap: var(--space-2); }
+  .btn-row .btn { flex: 1 1 auto; }
+
+  .chip { font-size: 0.74rem; padding: 0.42em 0.85em; }
+
+  .empty-state { padding: var(--space-6) var(--space-3); }
+
+  .search-dialog__head { padding: var(--space-3); }
+  .search-dialog__body { padding: var(--space-3); max-height: 56vh; }
+  .search-dialog__foot { display: none; }
+
+  .toast-region { bottom: var(--space-3); }
+  .toast { font-size: 0.8rem; padding: 0.65em 1em; }
+
+  .author-medallion { width: 72px; height: 72px; font-size: 1.3rem; }
+}
+
+/* Very narrow phones: keep covers legible, never overflow horizontally. */
+@media (max-width: 360px) {
+  .book-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3) var(--space-2); }
+  .book-card__meta { flex-wrap: wrap; }
+  .header-actions { gap: var(--space-1); }
+  .icon-btn { width: 38px; height: 38px; }
+}
+
+/* Landscape phones / short viewports: keep the reading surface usable. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .search-dialog { max-height: 92vh; }
+  .search-dialog__body { max-height: 46vh; }
+}
